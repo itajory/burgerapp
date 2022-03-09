@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container" style="background-color:#fff;padding:1px;" >
+    <div class="container-fluid" style="background-color:#fff;padding:1px;" >
       <nav class="navbar navbar-expand-lg navbar-light"  style="background-color:#fff">
   <a class="navbar-brand" href="#"><img src="@/assets/logo.png" style="width:60px; height:40px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,17 @@
      
     </ul>
     <ul class="navbar-nav navbar-right">
-       <li class="nav-item">
+     <li  class="nav-item" style="margin-top:10px;">
+        <form action="" method="post">
+    <div class="input-group" style="width:360px;">
+  <div class="input-group-prepend" >
+    <span class="input-group-text" id="basic-addon1"><img src="@/assets/icon/search.png" style="width:10px;height:10px;"></span>
+  </div>
+  <input type="text" style="background-color:#fafafa" class="form-control"  placeholder="type something and press Enter to Search " name="search" id="search">
+    </div>
+</form>
+     </li>
+       <li class="nav-item" style="margin-top:6px;">
         <a class="nav-link" href="#"><img src="@/assets/image/cart_icon.png" style="width:19px; height:18px;"></a>
       </li>
     </ul>
@@ -43,14 +53,7 @@
 </nav>
 <div class="container">
   <div  style="margin-bottom:2px;">
-  <form action="" method="post">
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"><img src="@/assets/icon/search.png" style="width:20px;height:15px;"></span>
-  </div>
-  <input type="text" style="background-color:#fafafa" class="form-control"  placeholder="type something and press Enter to Search " name="search" id="search">
-    </div>
-</form>
+  
 </div>
 </div>
 

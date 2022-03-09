@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-  
-  
     <HelloWorld />
      <Category />
   </div>
@@ -10,7 +8,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '../components/HelloWorld.vue'
-import Category from '../components/category.vue'
+import Category from '../components/category2.vue'
 
 export default {
   name: 'HomeView',
