@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="@/assets/image/home_icon.png" style="width:16px; height:14px;"> Home  <span class="sr-only">(current)</span></a>
+        <router-link class="nav-link" to="/"><img src="@/assets/image/home_icon.png" style="width:16px; height:14px;"> Home  <span class="sr-only">(current)</span></router-link>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="#"><img src="@/assets/image/more_icon.png" style="width:16px; height:14px;"> Menu</a>
@@ -19,13 +19,13 @@
         <a class="nav-link" href="#"><img src="@/assets/image/more_icon.png" style="width:16px; height:14px;"> Necessary Links</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#"><img src="@/assets/icon/marker.png" style="width:16px; height:14px;"> Favourite</a>
+        <router-link class="nav-link" to="/favorite"><img src="@/assets/icon/marker.png" style="width:16px; height:14px;"> Favourite</router-link>
       </li>
        <li class="nav-item">
-        <router-link class="nav-link" to="/about"><img src="@/assets/icon/marker.png" style="width:16px; height:14px;"> Menu</router-link>
+        <router-link class="nav-link" to="/menu"><img src="@/assets/icon/marker.png" style="width:16px; height:14px;"> Menu</router-link>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#"><img src="@/assets/image/profile.png" style="width:16px; height:14px;"> Profile</a>
+        <router-link class="nav-link" to="/profile"><img src="@/assets/image/profile.png" style="width:16px; height:14px;"> Profile</router-link>
       </li>
 
      

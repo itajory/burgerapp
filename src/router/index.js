@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import profile from '../views/profile.vue'
+import menu from '../views/menu.vue'
+import favorit from '../views/favorite.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +11,21 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profile
+  },
+  {
+    path: '/menu',
+    name: 'menu',
+    component: menu
+  },
+  {
+    path: '/favorite',
+    name: 'favorite',
+    component: favorit
   },
   {
     path: '/about',

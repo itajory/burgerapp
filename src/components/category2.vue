@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-     <span style="margin-top:20px;font-weight:bold">All Category</span>
+  <div class="container" style="padding-top:13px; font-family:cursive">
+     <span style="margin-top:20px;">All Category</span>
     <section  class="sec">
      
       <vue-horizontal-list class="hlv" :items="items" :options="options">
@@ -30,14 +30,14 @@ export default Vue.extend({
     return {
       options: {
         responsive: [
-          { end: 576, size: 5 },
-          { start: 576, end: 768, size: 8 },
-          { start: 768, end: 992, size: 10 },
-          { size:12 },
+          { end: 576, size: 4 },
+          { start: 576, end: 768, size: 7 },
+          { start: 768, end: 992, size: 9},
+          { size:15 },
         ],
         list: {
           // 1200 because @media (min-width: 1200px) and therefore I want to switch to windowed mode
-          windowed: 1200,
+          windowed: 1400,
 
           // Because: #app {padding: 80px 24px;}
           padding:0,
@@ -81,8 +81,8 @@ export default Vue.extend({
 }
 
 .item img {
-  width: 70px;
-  height: 70px;
+  width: 88px;
+  height: 77px;
 }
 
 .sec{
