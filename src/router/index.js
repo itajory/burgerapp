@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import profile from '../views/profile.vue'
 import menu from '../views/menu.vue'
 import favorit from '../views/favorite.vue'
+import cart from '../views/cartView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: profile
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: cart
   },
   {
     path: '/menu',
