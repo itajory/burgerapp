@@ -70,7 +70,23 @@ export default Vue.extend({
       ],
     };
   },
+
+  mounted() {
+this.get_category();
+  },
+  methods: {
+    get_category()
+    {
+      
+       console.log("from stateeeeeee-- -- - - -",this.$store.state.categories)
+      this.$store.dispatch('getallcategory')
+    }
+  }
 });
+
+
+
+
 </script>
 
 <style scoped>

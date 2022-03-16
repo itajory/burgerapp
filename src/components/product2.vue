@@ -217,6 +217,18 @@
 <script>
   export default {
     name:'product2-component',
+
+     mounted() {
+this.get_product();
+  },
+  methods: {
+    get_product()
+    {
+      
+  
+      this.$store.dispatch('getallproduct')
+    }
+  }
   }
 </script>
 
