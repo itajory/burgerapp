@@ -5,6 +5,7 @@ import profile from '../views/profile.vue'
 import menu from '../views/menu.vue'
 import favorit from '../views/favorite.vue'
 import cart from '../views/cartView.vue'
+import category_product from '../views/category_product.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
     path: '/favorite',
     name: 'favorite',
     component: favorit
+  },
+  {
+    path: '/category_product',
+    name: 'category_product',
+    component: category_product
   },
   {
     path: '/about',

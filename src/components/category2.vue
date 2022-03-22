@@ -8,8 +8,12 @@
 
         <template v-slot:default="{ item }">
           <div class="item" >
-            <h6>{{ item.title }}</h6>
-            <img class="rounded-circle  img" :src=item.content>
+        
+            <h6>{{ item.name }}</h6>
+              <img @click="getpro(item.id,item.name)" class="rounded-circle  img" :src=item.image>
+            <!-- <router-link :to="'category_product/'+item.id">
+          
+            </router-link> -->
           </div>
         </template>
       </vue-horizontal-list>
@@ -20,6 +24,7 @@
 <script>
 import Vue from "vue";
 import VueHorizontalList from "vue-horizontal-list";
+import axios from 'axios';
 
 export default Vue.extend({
   name: "ServeDev",
@@ -47,39 +52,56 @@ export default Vue.extend({
         },
         autoplay: { play: true, repeat: true, speed: 2500 },
       },
-      items: [
-        { title: "Pizza", content: "https://picsum.photos/id/1011/600/600" },
-        { title: "Burger", content: "https://picsum.photos/id/1010/600/600" },
-        { title: "Chiken", content: "https://picsum.photos/id/1012/600/600" },
-        { title: "cake", content: "https://picsum.photos/id/1055/600/600" },
-        { title: "Drinks", content: "https://picsum.photos/id/1019/600/600" },
-        { title: "Soda", content: "https://picsum.photos/id/1032/600/600" },
-         { title: "Sandwitch", content: "https://picsum.photos/id/1025/600/600" },
-        { title: "Melas", content: "https://picsum.photos/id/1015/600/600" },
-         { title: "Free Meal", content: "https://picsum.photos/id/1032/600/600" },
-        { title: "Sweats", content: "https://picsum.photos/id/1042/600/600" },
-        { title: "Fruites", content: "https://picsum.photos/id/1015/600/600" },
-        { title: "Vigitables", content: "https://picsum.photos/id/1015/600/600" },
-        { title: "Ice Cream", content: "https://picsum.photos/id/1042/600/600" },
-        { title: "Item 13", content: "https://picsum.photos/id/1042/600/600" },
-             { title: "Item 14", content: "https://picsum.photos/id/1083/600/600" },
-        { title: "Item 15", content: "https://picsum.photos/id/1042/600/600" },
-              { title: "Item 16", content: "https://picsum.photos/id/1015/600/600" },
-        { title: "Item 17", content: "https://picsum.photos/id/1083/600/600" },
-        { title: "Item 18", content: "https://picsum.photos/id/1042/600/600" },
-      ],
+     
+      items:[],
+  
     };
   },
 
   mounted() {
 this.get_category();
   },
+   beforeMount(){
+    this.get_category()
+ },
+ created(){
+this.get_category()
+ },
+computed:{
+
+},
   methods: {
-    get_category()
+  async  get_category()
     {
-      
-       console.log("from stateeeeeee-- -- - - -",this.$store.state.categories)
-      this.$store.dispatch('getallcategory')
+      const cat= await axios.get('https://admin.burgerlocation.online/api/v1/'+'categories')
+        .catch(err=>{
+          console.log(err)
+        });
+        if(cat)
+        {
+          this.items=cat.data
+           for(var i=0;i<this.items.length;i++)
+      {
+        this.items[i].image="https://admin.burgerlocation.online/storage/app/public/category/"+this.items[i].image;
+      }
+        }
+      //  console.log("from stateeeeeee in design page-- -- - - -",this.$store.state.categories)
+      // this.$store.dispatch('getallcategory')
+
+    },
+
+    getpro(id,name)
+    {
+      var payload={
+        id:id,
+        name:name
+      }
+this.$store.dispatch('catid',payload);
+
+
+
+
+this.$router.push("category_product");
     }
   }
 });

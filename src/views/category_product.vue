@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <HelloWorld />
-     <Category />
-     <product/>
+
+     <product :cat_id="id" :cat_name="name"/>
 
 
   </div>
@@ -11,14 +11,20 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '../components/HelloWorld.vue'
-import Category from '../components/category2.vue'
-import product from '../components/product2.vue'
+
+import product from '../components/cat_product.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'category-product',
+  data(){
+return{
+  id:this.$store.state.cat_id,
+  name:this.$store.state.cat_name,
+}
+  },
   components: {
     HelloWorld,
-    Category,
+
     product
   }
 }

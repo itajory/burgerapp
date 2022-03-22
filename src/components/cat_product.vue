@@ -1,12 +1,14 @@
 <template>
   <div class="container mt-5"  style="font-family:cursive">
-    <span class="mb-3">Popular Items</span>
-    <div class="row">
+    <span class="mb-3" >{{ cat_name }} > Products </span>
+    <hr>
+ 
           
 
+<div  class="row" v-if="there_is_product">
+  
 
-
-    <div v-for="pro in products" :key="pro.id" class="col-md-3  col-6 item" >
+    <div  v-for="pro in products" :key="pro.id" class="col-md-3  col-6 item" >
               <div class="ii">
                   <img :src="pro.image" alt="Avatar" class="image">
                 <div class="info">
@@ -27,13 +29,20 @@
 
 
 
+</div>
 
-            
+          <div v-else class="mt-10" style="margin:20px auto">
+          
+          <div class="alert alert-danger text-center">
+            <h2 class="text-center mt-10">No Data In This Category</h2>
+           <button class="btn btn-outline-danger"> <router-link style="color:#373737;text-decoration:none;text-align:center;font-weight:bold;" to="/">   &lt; Go Back </router-link></button>
+          </div>
+            </div>  
             
                
     </div>
 
-  </div>
+  
 </template>
 
 <script>
@@ -42,12 +51,15 @@ import axios from 'axios';
     name:'product2-component',
     data(){
       return{
-        products:this.$store.state.products
+        products:[],
+        there_is_product:true
 
       };
 
     },
+    props:['cat_id','cat_name'],
      mounted() {
+       console.log('ccccccccc       ',this.cat_name);
 this.get_product();
   },
  beforeMount(){
@@ -59,17 +71,23 @@ this.get_product()
   methods: {
    async get_product()
     {
-       const cat= await axios.get('https://admin.burgerlocation.online/api/v1/'+'products/latest')
+      console.log('f ....',this.cat_id);
+       const cat= await axios.get('https://admin.burgerlocation.online/api/v1/categories/products/'+this.cat_id)
         .catch(err=>{
           console.log(err)
         });
-        if(cat)
+        
+        if(cat.data.length > 0)
         {
-           this.products=cat.data.products
+           this.products=cat.data
            for(var i=0;i<this.products.length;i++)
               {
                 this.products[i].image="https://admin.burgerlocation.online/storage/app/public/product/"+this.products[i].image;
               }
+             this. there_is_product=true;
+        }
+        else{
+this. there_is_product=false;
         }
   
      // this.$store.dispatch('getallproduct')
