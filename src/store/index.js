@@ -13,6 +13,7 @@ export default new Vuex.Store({
     cat_id:null,
     cat_name:null,
     product_id:null,
+    product_name:null,
   },
   getters: {
     getcatlist(state){
@@ -56,7 +57,17 @@ export default new Vuex.Store({
       state.cat_name=null;
       state.cat_id=payload.id;
       state.cat_name=payload.name;
-    }
+    },
+
+    setproId(state,payload)
+    {
+
+
+      state.product_id=null;
+      state.product_name=null;
+      state.product_id=payload.id;
+      state.product_name=payload.name;
+    },
   },
   actions: {
   async  getallcategory(context)
@@ -87,7 +98,13 @@ export default new Vuex.Store({
 
       console.log('name    ssss ',payload.name);
       context.commit('setcatId',payload)
-    }
+    },
+    proid(context,payload){
+
+     // console.log('name    ssss ',payload.name);
+      context.commit('setproId',payload)
+    },
+
   },
   modules: {
 

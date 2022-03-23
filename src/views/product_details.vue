@@ -2,7 +2,7 @@
   <div class="home">
     <HelloWorld />
 
-     <product :cat_id="id" :cat_name="name"/>
+     <product :pro_id="id" :pro_name="name"/>
 
 
   </div>
@@ -12,14 +12,14 @@
 // @ is an alias to /src
 import HelloWorld from '../components/HelloWorld.vue'
 
-import product from '../components/cat_product.vue'
+import product from '../components/product_details'
 
 export default {
   name: 'product-details',
   data(){
 return{
-  id:this.$store.state.cat_id,
-  name:this.$store.state.cat_name,
+  id:this.$store.state.product_id,
+  name:this.$store.state.product_name,
 }
   },
   components: {

@@ -19,7 +19,7 @@
              
                         <div class="col-md-2"><span>{{pro.price}}د.ك</span></div>
 
-                            <a class="btn btn-block  details-style">Details</a>
+                            <button @click="getproid(pro.id,pro.name)" class="btn btn-block  details-style">Details</button>
                 </div>
                 </div>
               </div>
@@ -73,6 +73,20 @@ this.get_product()
         }
   
      // this.$store.dispatch('getallproduct')
+    },
+
+    getproid(id,name)
+    {
+        var payload={
+            id:id,
+            name:name
+        }
+        this.$store.dispatch('proid',payload);
+
+
+
+
+        this.$router.push("product_details");
     }
   }
   }

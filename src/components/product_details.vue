@@ -1,31 +1,27 @@
 <template>
   <div class="container mt-5"  style="font-family:cursive">
-    <span class="mb-3" >{{ cat_name }} > Products </span>
+    <span class="mb-3" > {{pro_name}} > Details </span>
     <hr>
  
           
 
-<div  class="row" v-if="there_is_product">
+<div  class="row" v-if="there_is_data" :detail="details">
   
+<div class="col-4 mr-2 sec" >
+    <img :src="details.image" style="width: 100%;height: 350px;">
 
-    <div  v-for="pro in products" :key="pro.id" class="col-md-3  col-6 item" >
-              <div class="ii">
-                  <img :src="pro.image" alt="Avatar" class="image">
-                <div class="info">
-                <div class="row underimage">
-                  <div class="col-md-8">
-                    <h6>{{pro.name}}</h6>
-            
-                  </div>
+</div>
+    <div class="col-7 sec">
 
-             
-                        <div class="col-md-2"><span>{{pro.price}}د.ك</span></div>
+        <h3>Name : {{details.name}}</h3>
+        <h4 style="color: #FB5951">Price : {{details.price}} د.ك</h4>
 
-                            <a class="btn btn-block  details-style">Details</a>
-                </div>
-                </div>
-              </div>
-            </div>
+
+        <h5>Start time : {{details.available_time_starts}}</h5>
+        <h5>end time : {{details.available_time_ends}}</h5>
+        <h5>tax : {{details.tax}}</h5>
+        <h5>tax Type: {{details.tax_type}}</h5>
+    </div>
 
 
 
@@ -34,7 +30,7 @@
           <div v-else class="mt-10" style="margin:20px auto">
           
           <div class="alert alert-danger text-center">
-            <h2 class="text-center mt-10">No Data In This Category</h2>
+            <h2 class="text-center mt-10">No Details For this Product </h2>
            <button class="btn btn-outline-danger"> <router-link style="color:#373737;text-decoration:none;text-align:center;font-weight:bold;" to="/">   &lt; Go Back </router-link></button>
           </div>
             </div>  
@@ -51,51 +47,67 @@ import axios from 'axios';
     name:'product2-component',
     data(){
       return{
-        products:[],
-        there_is_product:true
+        details:{},
+        there_is_data:true
 
       };
 
     },
-    props:['cat_id','cat_name'],
+    props:['pro_id','pro_name'],
      mounted() {
-       console.log('ccccccccc       ',this.cat_name);
+console.log("proid",this.pro_id)
+         console.log("proname",this.pro_name)
 this.get_product();
   },
- beforeMount(){
-    this.get_product()
- },
- created(){
-this.get_product()
- },
+
   methods: {
    async get_product()
     {
-      console.log('f ....',this.cat_id);
-       const cat= await axios.get('https://admin.burgerlocation.online/api/v1/categories/products/'+this.cat_id)
+
+       const details1= await axios.get('https://admin.burgerlocation.online/api/v1/products/details/'+this.pro_id)
         .catch(err=>{
           console.log(err)
         });
-        
-        if(cat.data.length > 0)
+        console.log("ops           ",details1)
+        if(details1.data)
         {
-           this.products=cat.data
-           for(var i=0;i<this.products.length;i++)
-              {
-                this.products[i].image="https://admin.burgerlocation.online/storage/app/public/product/"+this.products[i].image;
-              }
+
+           this.det=details1.data
+            console.log("det  ",this.det)
+
+                this.det.image="https://admin.burgerlocation.online/storage/app/public/product/"+this.det.image;
+
+                this.details=this.det;
+
              this. there_is_product=true;
         }
         else{
 this. there_is_product=false;
         }
   
-     // this.$store.dispatch('getallproduct')
+
     }
   }
   }
 </script>
 
 <style scoped>
+    .row{
+        padding: 10px;
 
+    }
+.sec{
+    padding: 18px;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 1px 1px #fff;
+    -moz-box-shadow: 0px 0px 1px 1px #fff;
+    box-shadow: 0px 0px 1px 1px #fff;
+    border-radius: 10px;
+
+}
+
+    .sec img{
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
 </style>
