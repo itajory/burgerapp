@@ -104,6 +104,30 @@ export default new Vuex.Store({
      // console.log('name    ssss ',payload.name);
       context.commit('setproId',payload)
     },
+//to be det........................................................................
+    async  getproductbycategory(context)
+    {
+        const cat= await axios.get(context.state.apilink+'category/product')
+        .catch(err=>{
+          console.log(err)
+        });
+        if(cat)
+        {console.log("inside getallproduct actions = - =- = -",cat.data.products);
+          context.commit('setprodutlist',cat.data.products)
+        }
+    },
+
+    async  getproductdetails(context)
+    {
+        const cat= await axios.get(context.state.apilink+'product/{id}')
+        .catch(err=>{
+          console.log(err)
+        });
+        if(cat)
+        {console.log("inside getallproduct actions = - =- = -",cat.data.products);
+          context.commit('setprodutlist',cat.data.products)
+        }
+    },
 
   },
   modules: {

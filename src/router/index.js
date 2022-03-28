@@ -40,6 +40,16 @@ const routes = [
     name: 'category_product',
     component: category_product
   },
+  // {
+  //   path: '/category_product',
+  //   name: 'category_product',
+  //   component: category_product
+  // },
+  // {
+  //   path: '/category_product',
+  //   name: 'category_product',
+  //   component: category_product
+  // },
   {
     path: '/product_details',
     name: 'product_details',
