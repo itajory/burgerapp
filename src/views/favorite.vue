@@ -22,18 +22,7 @@ import menue from '../components/favorite-component.vue'
       },
 
       methods:{
-        //to be det/........
-          async  getproductdetails(context)
-    {
-        const cat= await axios.get(context.state.apilink+'product/{id}')
-        .catch(err=>{
-          console.log(err)
-        });
-        if(cat)
-        {console.log("inside getallproduct actions = - =- = -",cat.data.products);
-          context.commit('setprodutlist',cat.data.products)
-        }
-    },
+     
       },
 
       mounted:{

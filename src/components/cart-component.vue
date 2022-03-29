@@ -130,14 +130,67 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data(){
-      return{
 
-      };
+<script>
+import Vue from "vue";
+import VueHorizontalList from "vue-horizontal-list";
+import axios from 'axios';
+
+export default Vue.extend({
+  name: "ServeDev",
+  components: {
+    VueHorizontalList,
+  },
+  data() {
+    return {
+    
+    };
+  },
+
+  mounted() {
+this.get_category();
+  },
+
+
+  methods: {
+  async  get_category()
+    {
+      // const cat= await axios.get('https://admin.burgerlocation.online/api/v1/'+'cart')
+      //   .catch(err=>{
+      //     console.log(err)
+      //   });
+      //   if(cat)
+      //   {
+      //     this.items=cat.data
+      //      for(var i=0;i<this.items.length;i++)
+      // {
+     //   this.items[i].image="https://admin.burgerlocation.online/storage/app/public/$x/"+this.items[i].image;
+    //  }
+       // }
+      //  console.log("from stateeeeeee in design page-- -- - - -",this.$store.state.categories)
+      // this.$store.dispatch('getallcategory')
+
+    },
+
+    getpro(id,name)
+    {
+      var payload={
+        id:id,
+        name:name
+      }
+this.$store.dispatch('catid',payload);
+
+
+
+
+this.$router.push("category_product");
     }
   }
+});
+
+
+
+
 </script>
 
 <style  scoped>
