@@ -140,7 +140,7 @@ h6{
 padding-bottom: 4px;
 background-color: white;
 border-radius: 8px;
-box-shadow: 0px 0px 3px 2px #fff;
+box-shadow: 0px 0px 3px 2px #aaa;
 /* border-right: 1px solid #F3B5B2;
 border-bottom: 1px solid #F3B5B2; */
 

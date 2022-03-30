@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="background-color:#eee">
     <HelloWorld />
 
      <product :cat_id="id" :cat_name="name"/>

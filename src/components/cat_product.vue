@@ -34,7 +34,7 @@
           <div v-else class="mt-10" style="margin:20px auto">
           
           <div class="alert alert-danger text-center">
-            <h2 class="text-center mt-10">No Data In This Category</h2>
+            <h4 class="text-center mt-10">No Data In This Category</h4>
            <button class="btn btn-outline-danger"> <router-link style="color:#373737;text-decoration:none;text-align:center;font-weight:bold;" to="/">   &lt; Go Back </router-link></button>
           </div>
             </div>  

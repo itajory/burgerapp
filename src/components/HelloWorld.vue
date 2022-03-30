@@ -33,7 +33,7 @@
     <ul class="navbar-nav navbar-right">
      <li  class="nav-item" style="margin-top:10px;">
         <form action="" method="post">
-    <div class="input-group" style="width:360px;">
+    <div class="input-group" style="width:350px;">
   <div class="input-group-prepend" >
     <span class="input-group-text" id="basic-addon1"><img src="@/assets/icon/search.png" style="width:10px;height:10px;"></span>
   </div>
