@@ -133,13 +133,13 @@
 
 <script>
 import Vue from "vue";
-import VueHorizontalList from "vue-horizontal-list";
-import axios from 'axios';
+//import VueHorizontalList from "vue-horizontal-list";
+// import axios from 'axios';
 
 export default Vue.extend({
   name: "ServeDev",
   components: {
-    VueHorizontalList,
+    
   },
   data() {
     return {

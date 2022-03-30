@@ -7,23 +7,33 @@
 
 <div  class="row" v-if="there_is_data" :detail="details">
   
-<div class="col-4 mr-2 sec" >
+<div class="col-md-4 col-xs-12 mr-2 sec" >
     <img :src="details.image" style="width: 100%;height: 350px;">
 
 </div>
-    <div class="col-7 sec">
+    <div class="col-md-7 col-xs-12 sec">
 
-        <h3>Name : {{details.name}}</h3>
-        <h4 style="color: #FB5951">Price : {{details.price}} د.ك</h4>
+       <div> <span style="font-size:25px;font-weight:bold; float:left">{{details.name}}</span>
+        <span style="color: #FB5951; float:right;font-size:19px;"> {{details.price}} د.ك</span></div>
+       <br>
+       <br>
+       <hr>
 
 
-        <h5>Start time : {{details.available_time_starts}}</h5>
+        <h5 >Start time : {{details.available_time_starts}}</h5>
         <h5>end time : {{details.available_time_ends}}</h5>
         <h5>tax : {{details.tax}}</h5>
         <h5>tax Type: {{details.tax_type}}</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipis
+          icing elit. Itaque magni autem eveniet atque si
+          milique quisquam fugit iste animi nihil quas qu
+          is cumque eligendi 
+          accusamus at explicabo ex, delectus necessitatibus dolorem.</p>
+        <hr>
+ <button class="btn" style="background-color:#FB5951;color:white">Add To Cart </button>
     </div>
 
-
+ 
 
 </div>
 
