@@ -14,6 +14,7 @@ export default new Vuex.Store({
     cat_name:null,
     product_id:null,
     product_name:null,
+    searchword:''
   },
   getters: {
     getcatlist(state){

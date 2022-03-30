@@ -32,23 +32,20 @@
     </ul>
     <ul class="navbar-nav navbar-right">
      <li  class="nav-item" style="margin-top:10px;">
-        <form action="" method="post">
+      
     <div class="input-group" style="width:350px;">
   <div class="input-group-prepend" >
     <span class="input-group-text" id="basic-addon1"><img src="@/assets/icon/search.png" style="width:10px;height:10px;"></span>
   </div>
-  <input type="text" style="background-color:#fafafa" class="form-control"  placeholder="type something and press Enter to Search " name="search" id="search">
+  <input v-on:keyup="keyhandler($event)" v-model="search" type="text" style="background-color:#fafafa" class="form-control"  placeholder="type something and press Enter to Search " name="search" id="search">
     </div>
-</form>
+
      </li>
        <li class="nav-item" style="margin-top:6px;">
         <a class="nav-link" href="#"><img src="@/assets/image/cart_icon.png" style="width:19px; height:18px;"></a>
       </li>
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
+
   </div>
 </nav>
 <div class="container">
@@ -64,8 +61,26 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  
+  methods:{
+    keyhandler(event)
+    {
+      if(event.key == "Enter")
+      {
+
+ this.$store.state.search=this.search;
+ console.log(this.search)
+
+      }
+
+
+     
+    },
+    data(){
+      return{
+        search:''
+      }
+    }
   }
 }
 </script>
