@@ -7,6 +7,8 @@ import favorit from '../views/favorite.vue'
 import cart from '../views/cartView.vue'
 import category_product from '../views/category_product.vue'
 import product_details from '../views/product_details'
+import  about_component from '../views/AboutView1.vue'
+import  privacy from '../views/privacy.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -40,28 +42,24 @@ const routes = [
     name: 'category_product',
     component: category_product
   },
-  // {
-  //   path: '/category_product',
-  //   name: 'category_product',
-  //   component: category_product
-  // },
-  // {
-  //   path: '/category_product',
-  //   name: 'category_product',
-  //   component: category_product
-  // },
+ 
   {
     path: '/product_details',
     name: 'product_details',
     component: product_details
   },
   {
+    path: '/privacy',
+    name: 'privacy',
+    component: privacy
+  },
+  {
     path: '/about',
-    name: 'about',
+    name: 'about_component',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: about_component
   }
 ]
 

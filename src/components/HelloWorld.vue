@@ -15,8 +15,16 @@
        <li class="nav-item">
         <a class="nav-link" href="#"><img src="@/assets/image/more_icon.png" style="width:16px; height:14px;"> Menu</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="@/assets/image/more_icon.png" style="width:16px; height:14px;"> Necessary Links</a>
+
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Necessary Links
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+ <router-link class="nav-link" to="/about"><font-awesome-icon icon="fa-regular fa-star" />  About  </router-link>
+  <router-link class="nav-link" to="/privacy"><font-awesome-icon icon="fa-regular fa-star" />  Privacy  </router-link>
+
+        </div>
       </li>
        <li class="nav-item">
         <router-link class="nav-link" to="/favorite"><img src="@/assets/icon/marker.png" style="width:16px; height:14px;"> Favourite</router-link>
